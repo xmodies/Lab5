@@ -16,13 +16,26 @@ public class FileHandling {
         Student e;
         while ((line = r.readLine()) != null) {
             e = createRecordFrom(line);
-            Student.add(e);
+            students.add(e);
+            return students;
         }
 
     }catch (IOException e){
                 System.out.println("this file cannot be opened!");
                 return;
             }
+
+    }
+    public static Student createRecordFrom(String line) {
+        Student e;
+        String[] data = line.split(",");
+        String StudentId=data[0];
+        String Name = data[1];
+        String Email = data[2];
+        String Address = data[3];
+        String PhoneNumber = data[4];
+        e = new EmployeeUser(employeeId,Name,Email,Address,PhoneNumber);
+        return e;
     }
 
 }
